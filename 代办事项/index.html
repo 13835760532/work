@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="myapp" ng-controller="ctrl">
+        <header><p>待办事项</p></header>
+        <aside class="col-xs-3 lis">
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+
+                <!--搜索-->
+                <input type="text" class="form-control chaxun" placeholder="search" aria-describedby="basic-addon1" ng-model="chaxun" ng-keydown="clearchaxunarr()" ng-keyup="chaxunlis()">
+            </div>
+
+            <!--已完成-->
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" ng-class="{true:'wancheng active',false:'wancheng'}[wanflag]"><a ng-click="wanflagf()">已完成</a><span ng-bind="wan.length"></span></li>
+
+                <li role="presentation " ng-class="{true:'active'}[daiflag==true]"><a href="#">计划事项</a></li>
+            </ul>
+            <div class="list-group">
+                <!--<a href="#" class="list-group-item active">-->
+                    <!--Cras justo odio-->
+                <!--</a>-->
+
+                <div class="pre diabanlisb" ng-repeat="item in shi |filter:{title:chaxun} track by $index">
+                    <!--<input ng-class="{true:'list-group-item contitle active',false:'list-group-item contitle'}[$index==indexcha]" type="text"  ng-model="item.title" ng-focus="showlis(item.id)" ng-blur="savelis()">-->
+                    <input ng-class="{true:'list-group-item contitle active',false:'list-group-item contitle'}[item.hot=='true']" type="text"  ng-model="item.title" ng-focus="showlis(item.id)" ng-blur="savelis()">
+
+
+                    <span class="glyphicon glyphicon-trash" ng-click="dellis(item.id)"></span>
+                    {{chaxunid(item.id)}}
+                </div>
+
+            </div>
+            <div class="add" ng-click="addlis()"><span class="glyphicon glyphicon-plus-sign"></span>添加列表</div>
+        </aside>
+        <div class="col-xs-9 con">
+            <!--<div class="daiban" ng-show="daiflag">-->
+                <!--<div class="title">{{daibanshow.title}}<span class="glyphicon glyphicon-plus-sign" ng-click="addcon()"></span></div>-->
+                <!--<ul>-->
+                    <!--<li class="daibanli" ng-repeat="item1 in daibanshow.con" >-->
+                        <!--<span class="glyphicon glyphicon-ok" ng-click="wanadd($index)"></span>-->
+                        <!--<input type="text" ng-model="item1" ng-keyup="alercon()">-->
+                        <!--<span class="glyphicon glyphicon-trash" ng-click="deldai($index)"></span>-->
+
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+
+            <!--待办事项内容-->
+            <div class="daiban" ng-show="daiflag">
+                <!--待办事项标题-->
+                <div class="title" >{{shi[indexlis].title}}<span class="glyphicon glyphicon-plus-sign" ng-click="addcon()"></span></div>
+                <ul>
+                    <!--待办事项详细-->
+                    <li class="daibanli" ng-repeat="item1 in shi[indexlis].con track by $index" >
+                        <span class="glyphicon glyphicon-ok" ng-click="wanadd(item1.id)"></span>
+                        <input type="text" class="daibancon" ng-model="item1.cons" ng-blur="alercon(item1,item1.id)">
+                        <p class="time">{{item1.time|date:"yyyy-MM-dd hh:mm:ss"}}</p>
+                        <span class="glyphicon glyphicon-trash" ng-click="deldai(item1.id)"></span>
+
+                    </li>
+                </ul>
+            </div>
+            <!--已完成事项-->
+            <div class="wanc" ng-show="wanflag">
+                <div class="title" >已完成事项<span class="glyphicon glyphicon-scissors" ng-click="clearwan()"></span></div>
+
+                <ul>
+                    <li class="daibanli" ng-repeat="item1 in wan track by $index" >
+                        <span class="glyphicon glyphicon-share-alt" ng-click="huanyuan(item1)"></span>
+                        <input type="text" ng-model="item1.cons" readonly="readonly">
+                        <span class="glyphicon glyphicon-trash" ng-click="delwan(item1.wanid)"></span>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="js/jquery-1.12.3.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

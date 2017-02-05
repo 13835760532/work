@@ -1,0 +1,157 @@
+
+body,html{
+    height: 100%;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+header{
+    position: relative;
+    height: 10%;
+    text-align: center;
+    color: #fff;
+    background: #3F4650;
+    font-size: 20px;
+    line-height: 80px;
+}
+header p{
+    position: absolute;
+    top:0;left: 0;right: 0;bottom: 0;
+    margin: auto;
+    width: 200px;
+    height: 24px;
+    line-height: 24px;
+}
+aside{
+    position: relative;
+}
+
+.lis,.con{
+     height: 90%;
+}
+.lis{
+    background: #3F4650;
+    overflow-y: auto;
+}
+.input-group span{
+    top:0!important;
+}
+.nav>li{
+
+    margin-top: 20px!important;
+}
+.nav>li>a{
+    background: #eee;
+}
+.list-group{
+    margin-top: 10px;
+}
+.add{
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    color: #ff891f;
+    font-size: 20px;
+    cursor: pointer;
+    border:  1px solid #ff891f;
+}
+.wancheng{
+    position: relative;
+}
+.list-group-item,.list-group-item input{
+    height: 40px;
+    width: 100%;
+}
+.pre{
+    position: relative;
+}
+.list-group-item+span{
+    position:absolute;
+    right:30px;
+    top:10px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity .5s,color .5s;
+}
+.diabanlisb:hover .list-group-item+span{
+    opacity: 1;
+    color: red;
+}
+.wancheng span{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+    right: 10px;
+    display: block;
+    /*width: 24px;*/
+    padding: 0 5px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    background: #ff891f;
+    color: #0f0f0f;
+}
+.title{
+    border-bottom: 1px solid #ccc;
+}
+.title span{
+    float: right;
+    margin-top: 12px;
+    margin-right: 30px;
+    font-size: 30px;
+}
+.daiban,.wanc{
+    position: absolute;
+    width: 98%;
+    height: 100%;
+    overflow-y: auto;
+}
+.daiban .title,.wanc .title{
+    font-size: 40px;
+}
+.time{
+    position: absolute;
+    top:5px;
+    right: 60px;
+    font-size: 12px;
+
+}
+
+.con{
+    position: relative;
+}
+.daibanli{
+    margin-top: 20px;
+    position: relative;
+}
+.daibanli input{
+    width: 95%;
+    margin-left: 20px;
+    padding-left: 0;
+}
+.daibanli span:first-child{
+    position: absolute;
+    top:4px;
+    left: 2px;
+    color:green;
+}
+.wanc .daibanli span:first-child{
+    position: absolute;
+    top:4px;
+    left: 2px;
+    color: #ff9b17;
+}
+.daibanli  span:last-child{
+    position: absolute;
+    top:5px;
+    right: 30px;
+}
+.daibanli  span:last-child:hover{
+    color:red;
+}
